@@ -32,6 +32,17 @@ shapes = [
     np.array([[1, 0, 1], [0, 1, 0]])  # T shape with holes
 ]
 
+shapesDims = [
+    (1,1),
+    (2,2),
+    (2,2),
+    (2,4),
+    (2,4),
+    (4,2),
+    (4,2),
+    (3,2),
+    (3,2)
+]
 shapesIdxToName = {
     0: "Square",
     1: "SquareWithHoles",
@@ -226,6 +237,23 @@ def loop_gui():
                             print("Grid conditions not met!")
                 elif event.key == pygame.K_h:
                     currentShapeIndex = (currentShapeIndex + 1) % len(shapes)
+                    currentShapeDimensions = shapesDims[currentShapeIndex]
+                    xXented = shapePos[0] + currentShapeDimensions[0]
+                    yXetended = shapePos[1] + currentShapeDimensions[1]
+
+                    if (xXented > gridSize and yXetended > gridSize):
+                        ## Move the current pos to the top left
+                        shapePos[0] -= (xXented-gridSize) 
+                        shapePos[1] -= (yXetended-gridSize) 
+
+                    if (yXetended > gridSize):
+                        ## Move the current pos to the top 
+                        shapePos[1] -= (yXetended-gridSize) 
+
+                    if (xXented > gridSize):
+                        ## Move the current pos to the left
+                        shapePos[0] -= (xXented-gridSize) 
+
                     print("Current shape", shapesIdxToName[currentShapeIndex])
                 elif event.key == pygame.K_k:
                     currentColorIndex = (currentColorIndex + 1) % len(colors)
@@ -235,7 +263,7 @@ def loop_gui():
                         removeShape(grid, shapes[lastShapeIndex], lastShapePos)
                 elif event.key == pygame.K_e:  # Export the grid state
                     gridState = exportGridState(grid)
-                    print("Exported Grid State:", gridState)
+                    print("Exported Grid State: \n", gridState)
                     print("Placed Shapes:", placedShapes)
                 elif event.key == pygame.K_i:  # Import the grid state, not needed for us.
                     # Dummy grid state for testing
@@ -343,7 +371,7 @@ def execute(command='e'):
             except:
                 pass
 
-    return grid, placedShapes, done
+    return shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done
 
 
 def printGridState(grid):
