@@ -4,98 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment Description</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #444;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
+            margin-bottom: 40px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
+
         th, td {
-            border: 2px solid black;
-            padding: 10px;
+            padding: 18px 24px;
             text-align: left;
         }
+
         th {
-            background-color: #f2f2f2;
+            background-color: #f0f4f8;
+            color: #555;
+            font-size: 16px;
+            font-weight: 600;
         }
+
         td {
-            vertical-align: top;
+            background-color: #ffffff;
+            color: #666;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8f9fa;
+        }
+
+        p {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        a p {
+            background-color: #0f7070;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover p {
+            background-color: #0056b3;
+        }
+
+        a i {
+            margin-right: 8px;
+        }
+
+        /* Modern button hover effect */
+        a p:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        table.link-table {
+            width: 50%;
+            position: relative;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: None;
+            background: None;
+        }
+
+        table.link-table td {
+            padding: 20px;
+            text-align: center;
+            background-color: None;
+            background: None;
+        }
+
+        table.link-table a {
+            text-decoration: none;
+            display: block;
+            margin: 10px auto;
+            max-width: 300px;
+            transition: all 0.3s ease;
+        }
+
+        table.link-table a p {
+            color: #ffffff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            border-radius: 15px;
+        }
+
+        table.link-table a:hover p {
+            color: #ffffff;
+            border-color: #0056b3;
+        }
+
+        table.link-table a i {
+            margin-right: 8px;
+        }
+
+        table.link-table a p:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 
-<h2>
-    Tiling Problem
-</h2>
+<h2>Shapeshifting Coloring Problems: An Interactive Tiling Assignment</h2>
 
 <table>
     <tr>
         <th>Summary</th>
         <td>
-            This assignment presents students with a variant of an interactive tiling problem involving multiple constraints. Students are tasked with exploring search trees and traversing search graphs to find solutions using any AI search algorithm of their choice. Additionally, students are encouraged to develop custom heuristics to increase complexity by adversarially tiling the plane.
+            This assignment presents students with a variant of an interactive tiling problem involving multiple constraints. Specifically, we randomly initialize a grid-environment with some cells colored in and ask students to color the remainder of the grid such that no two cells sharing an edge share the same color. We provide a set of colors and list of brushes to choose from – each of which takes on one of nine shapes and spans up to four cells on the grid. The objective is to also minimize the number of brush strokes and colors used. 
+            <br><br>
+            Students are tasked with programmatically exploring the implicit search space graph and to find solutions using an AI search algorithm of their choice. By randomly iniitializing the grid environment with pre-filled cells, we incentivize students to build custom heuristics that are more generalizable.
+            <br><br>
+            We model the environment as a black box, providing an interface that mirrors real-world applications, such as the popular Gymnasium environ-ments for reinforcement learning. Thus, the assignment naturally lends itself to a range of algorithms from basic searches to reinforcement learning, allowing instructors to control difficulty.
+            <br><br>
         </td>
     </tr>
     <tr>
         <th>Topics</th>
-        <td>Search Problems, Constraint Satisfaction, Heuristics</td>
+        <td>Search Problems, Constraint Satisfaction, Heuristics, Hill Climbing</td>
     </tr>
     <tr>
         <th>Audience</th>
         <td>
-            Suitable for undergraduate or graduate students enrolled in introductory courses on Artificial Intelligence or Machine Learning.
+            Suitable for undergraduate or graduate students enrolled in introductory Artificial Intelligence or Machine Learning courses.
         </td>
     </tr>
     <tr>
         <th>Difficulty</th>
         <td>
-            Moderate difficulty for undergraduates with a background in Python programming. Previous implementations have shown that most students successfully completed the assignment within the allotted time.
+            Moderate difficulty for undergraduates with a background in Python programming. A pilot run showed that most students were able to successfully complete the assignment within the allotted time.
         </td>
     </tr>
     <tr>
         <th>Strengths</th>
         <td>
-            This assignment encourages students to design and implement their own search techniques. It supports the application of various algorithms, including BFS, DFS, A*, Genetic Algorithms, and Reinforcement Learning, providing flexibility in problem-solving approaches.
+            The open-ended nature of the assignment helps students build multiple vital skills: a) correctly and efficiently modeling a search space, b) working with a black box model through a limited set of interactions, c) optimizing code for runtime and memory, and d) testing for edge-cases and generalizability. 
+            <br><br>
+            This assignment encourages students to design, implement and experiment with different search techniques. The assignment supports the application of various algorithms, including BFS, DFS, A*, Genetic Algorithms, and even Reinforcement Learning, providing flexibility in problem-solving approaches.
+            <br><br>
+            We also supply an autograder that evaluates the student’s solution based on the number of brush strokes and colors used, as well as their runtime, designed to be deployed on Gradescope. This allows students to receive immediate feedback on their submissions, which is essential for iterative improvement.
         </td>
     </tr>
     <tr>
         <th>Weaknesses</th>
         <td>
-            The primary challenge is that students are expected to have a strong proficiency in Python, which may pose difficulties for those with less experience in the language.
+            Requires proficiency in Python, which could be challenging for less experienced students.
         </td>
     </tr>
     <tr>
         <th>Dependencies</th>
         <td>
-            A solid background in Python programming is recommended. The assignment is compatible with Python 3+ and can be executed on most single-board computers, ensuring accessibility across various platforms.
+            A background in Python programming is recommended. The assignment is compatible with Python 3+ and can be executed on most single-board computers, ensuring accessibility across various platforms.
         </td>
     </tr>
     <tr>
         <th>Variants</th>
         <td>
-            This assignment is highly adaptable. Instructors can adjust the focus to specific algorithms or modify the complexity by altering the number and nature of constraints. These modifications allow the assignment to be customized for different levels of difficulty and learning objectives.
+            This assignment is highly adaptable. Instructors can limit the requirements to specific algorithms or modify the complexity by altering the number and nature of constraints. These modifications allow the assignment to be customized for different levels of difficulty and learning objectives.
         </td>
     </tr>
 </table>
 
-<a href="./TilingProblem/Assignment Instructions.pdf">
-    <p>
-        Assignment handout template
-    </p>    
-</a>
+<h2>Downloads</h2>
 
-<a href="./TilingProblem/gridgame.py">
-    <p>
-        Source code for the environment    
-    </p>    
-</a>
-
-<a href="./TilingProblem/hw1.py">
-    <p>
-        File to be edited by students
-    </p>    
-</a>
+<table class="link-table">
+    <tr>
+        <td>
+            <a href="./TilingProblem/Assignment Instructions.pdf">
+                <p>
+                    <i class="fas fa-file-pdf"></i> Assignment handout template
+                </p>    
+            </a>
+        </td>
+        <td>
+            <a href="./TilingProblem/gridgame.py">
+                <p>
+                    <i class="fas fa-code"></i> Source code for the environment
+                </p>    
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./TilingProblem/hw1.py">
+                <p>
+                    <i class="fas fa-file-code"></i> Skeleton code file to be edited by students
+                </p>    
+            </a>
+        </td>
+        <td>
+            <a href="./autograder.zip">
+                <p>
+                    <i class="fas fa-file-archive"></i> Autograder for the assignment, compatible with Gradescope
+                </p>    
+            </a>
+        </td>
+    </tr>
+</table>
 
 </body>
 </html>
