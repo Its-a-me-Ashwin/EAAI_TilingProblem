@@ -20,6 +20,12 @@ setup(GUI = False, render_delay_sec = 0.1, gs = 7)
 
 # Initialization
 
+# shapePos is the current position of the brush.
+
+# currentShapeIndex is the index of the current brush type being placed (order specified in gridgame.py, and assignment instructions).
+
+# currentColorIndex is the index of the current color being placed (order specified in gridgame.py, and assignment instructions).
+
 # grid represents the current state of the board. 
     
     # -1 indicates an empty cell
@@ -40,9 +46,9 @@ setup(GUI = False, render_delay_sec = 0.1, gs = 7)
 ##############################################################################################################################
 
 shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done = execute('export')
-#input()   # <-- workaround to prevent PyGame window from closing after execute() is called, for when GUI set to True. Uncomment to enable.
-print(grid, placedShapes, done)
 
+#input()   # <-- workaround to prevent PyGame window from closing after execute() is called, for when GUI set to True. Uncomment to enable.
+print(shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done)
 
 
 ####################################################

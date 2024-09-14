@@ -296,7 +296,7 @@ def execute(command='e'):
             refresh()
         except:
             pass
-        return grid, placedShapes, done
+        return shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done
     if command.lower() in ['w', 'up']:
         new_event = pygame.event.Event(pygame.KEYDOWN, unicode='w', key=ord('w'))
         try:
