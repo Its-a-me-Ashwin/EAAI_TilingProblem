@@ -1,2 +1,2 @@
-# EAAI_TilingProblem
+# EAAI 2025 TilingProblem
 This repo is the submission for EAAI 2025. It has all the required documents for the tiling problem. 
