@@ -13,7 +13,7 @@ from gridgame import *
 
 ##############################################################################################################################
 
-setup(GUI = True, render_delay_sec = 0.1, gs = 10)
+game = ShapePlacementGrid(False, render_delay_sec=0.1, gs=6, num_colored_boxes=5)
 
 
 ##############################################################################################################################
@@ -45,7 +45,7 @@ setup(GUI = True, render_delay_sec = 0.1, gs = 10)
 
 ##############################################################################################################################
 
-shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done = execute('export')
+shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done =game.execute('export')
 
 #input()   # <-- workaround to prevent PyGame window from closing after execute() is called, for when GUI set to True. Uncomment to enable.
 print(shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done)
