@@ -326,9 +326,9 @@ class ShapePlacementGrid:
                         if (xXented > self.gridSize and yXetended > self.gridSize):
                             self.shapePos[0] -= (xXented - self.gridSize)
                             self.shapePos[1] -= (yXetended - self.gridSize)
-                        if (yXetended > self.gridSize):
+                        elif (yXetended > self.gridSize):
                             self.shapePos[1] -= (yXetended - self.gridSize)
-                        if (xXented > self.gridSize):
+                        elif (xXented > self.gridSize):
                             self.shapePos[0] -= (xXented - self.gridSize)
 
                         print("Current shape", self.shapesIdxToName[self.currentShapeIndex])
