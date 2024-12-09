@@ -10,11 +10,13 @@ from gridgame import *
 # For your final submission, please set the GUI option to False.
 
 # The gs argument controls the grid size. You should experiment with various sizes to ensure your code generalizes.
+# Please do not modify or remove lines 18 and 19.
 
 ##############################################################################################################################
 
-game = ShapePlacementGrid(False, render_delay_sec=0.1, gs=6, num_colored_boxes=5)
-
+game = ShapePlacementGrid(GUI=False, render_delay_sec=0.1, gs=6, num_colored_boxes=5)
+shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done = game.execute('export')
+np.savetxt('initial_grid.txt', grid, fmt="%d")
 
 ##############################################################################################################################
 
@@ -45,7 +47,7 @@ game = ShapePlacementGrid(False, render_delay_sec=0.1, gs=6, num_colored_boxes=5
 
 ##############################################################################################################################
 
-shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done =game.execute('export')
+shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done = game.execute('export')
 
 #input()   # <-- workaround to prevent PyGame window from closing after execute() is called, for when GUI set to True. Uncomment to enable.
 print(shapePos, currentShapeIndex, currentColorIndex, grid, placedShapes, done)

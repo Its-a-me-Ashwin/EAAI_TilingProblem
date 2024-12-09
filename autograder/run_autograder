@@ -1,3 +1,2 @@
 #!/bin/bash
-# ./source/setup.sh
 python3 source/run_tests.py
