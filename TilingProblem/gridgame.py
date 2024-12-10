@@ -69,6 +69,7 @@ class ShapePlacementGrid:
         self.currentColorIndex = 0
         self.shapePos = [0, 0]
         self.placedShapes = []
+        self.done = False
 
         # Initialize grid with random colored boxes
         self._addRandomColoredBoxes(self.grid, num_colored_boxes)
@@ -85,7 +86,6 @@ class ShapePlacementGrid:
 
     def execute(self, command='e'):
         # Command-based environment interaction similar to Gym
-        done = False
         if command.lower() in ['e', 'export']:
             new_event = pygame.event.Event(pygame.KEYDOWN, unicode='e', key=ord('e'))
             try:
@@ -93,7 +93,7 @@ class ShapePlacementGrid:
                 self._refresh()
             except:
                 pass
-            return self.shapePos, self.currentShapeIndex, self.currentColorIndex, self.grid, self.placedShapes, done
+            return self.shapePos, self.currentShapeIndex, self.currentColorIndex, self.grid, self.placedShapes, self.done
         if command.lower() in ['w', 'up']:
             new_event = pygame.event.Event(pygame.KEYDOWN, unicode='w', key=ord('w'))
             try:
@@ -138,9 +138,9 @@ class ShapePlacementGrid:
                 except:
                     pass
                 if self._checkGrid(self.grid):
-                    done = True
+                    self.done = True
                 else:
-                    done = False
+                    self.done = False
         elif command.lower() in ['h', 'switchshape']:
             self.currentShapeIndex = (self.currentShapeIndex + 1) % len(self.shapes)
             new_event = pygame.event.Event(pygame.KEYDOWN, unicode='h', key=ord('h'))
@@ -168,7 +168,7 @@ class ShapePlacementGrid:
                 except:
                     pass
 
-        return self.shapePos, self.currentShapeIndex, self.currentColorIndex, self.grid, self.placedShapes, done
+        return self.shapePos, self.currentShapeIndex, self.currentColorIndex, self.grid, self.placedShapes, self.done
 
     # All other methods are private (no requirement for public)
     def _drawGrid(self, screen):
